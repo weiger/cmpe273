@@ -1,8 +1,6 @@
 package main
 
-import "fmt"
-
-func numberOfIsland(grid *[4][5]int64) int{
+func CountIslands(grid [][]int) int{
 
     if len(grid) == 0{
 	return 0
@@ -22,7 +20,7 @@ func numberOfIsland(grid *[4][5]int64) int{
     return count
 }
 
-func dfs(grid *[4][5]int64, i int, j int){
+func dfs(grid [][]int, i int, j int){
     if i < 0 || i >= len(grid) || j < 0 || j >= len(grid[0]){
 	return 
     }
@@ -39,10 +37,4 @@ func dfs(grid *[4][5]int64, i int, j int){
     dfs(grid,i,j-1)
 }
 
-func main(){
-    grid := [4][5]int64{{1,1,1,1,0},{1,1,0,1,0},{1,1,0,0,0},{0,0,0,0,0}}
-    grid2 := [4][5]int64{{1,1,0,0,0},{1,1,0,0,0},{0,0,1,0,0},{0,0,0,1,1}}
 
-    fmt.Println(numberOfIsland(&grid))
-    fmt.Println(numberOfIsland(&grid2))
-}
